@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div class="secao">
+    <h3 class="text-center">Cinema, viagens, diversão muito e mais!</h3>
+    <h5 class="text-center">Conheça as melhores ofertas para você se divertir quando quiser:</h5>
+  </div>
+
+  <hr />
+  <div *ngFor="let oferta of ofertas">
+    <div class="row">
+      <div class="col-md-4">
+        <img [src]="oferta.imagens[0].url" class="img-fluid" />
+        <!-- Property bind: declara o src entre [] 
+        ofertas é a nossa variavel ngFor e .imagens[0] é um array que esta no arquivo de banco de dados banco-de-dados.json-->
+        <!--class="img-fluid" serve para deixar a coluna responsiva respeitando o tamanho-->
+      </div>
+
+      <div class="col-md-8">
+        <div class="row">
+          <h4>{{ oferta.titulo }}</h4>
+          <!--String interpolation para trazer o titulo -->
+        </div>
+
+        <div class="row">
+          <h5>{{ oferta.descricao_oferta }}</h5>
+          <!--String interpolation para trazer a descricao da oferta -->
+        </div>
+
+        <div class="row">
+          <p>Anunciado por: <b>{{ oferta.anunciante }}</b></p>
+          <!--String interpolation para trazer a oferta -->
+        </div>
+
+        <div class="row">
+          <p>{{ oferta.valor }}</p>
+          <!--String interpolation para trazer valor -->
+        </div>
+
+        <div class="row">
+          <button class="btn btn-outline-success" [routerLink]="['/oferta', oferta.id]">Ver oferta</button> <!--Nao é requisicao para o servidor-->
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <hr />
+  </div>
